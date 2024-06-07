@@ -43,16 +43,25 @@ function App() {
   //   });
   // };
 
-  const router = createBrowserRouter([{
-    path: '/',
-    element: <Home />,
+  // const router = createBrowserRouter([{
+  //   path: '/',
+  //   element: <Home />,
     
    
-  },{path: 'todo', element: <TodoForm/>}])
+  // },{path: 'todo', element: <TodoForm/>}])
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <Navbar />,
+      children: [
+        { index: true, element: <Home /> },
+        { path: '/todo', element: <TodoForm /> },
+      ],
+    },
+  ]);
 
   return (
     <>
-    <Navbar />
       <RouterProvider router={router}/>
     </>
   )
