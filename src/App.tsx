@@ -4,6 +4,9 @@ import './App.css'
 // import { TodoList } from './TodoList';
 import { Navbar } from './Navbar';
 import { Home } from './Home';
+import { TodoForm } from './TodoForm';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+
 
 // interface Todo {
 //   id: string;
@@ -39,15 +42,18 @@ function App() {
   //     });
   //   });
   // };
+
+  const router = createBrowserRouter([{
+    path: '/',
+    element: <Home />,
+    
+   
+  },{path: 'todo', element: <TodoForm/>}])
+
   return (
     <>
-    <Navbar/>
-      {/* <NewTodoForm onSubmit={handleSubmit}/>
-      <TodoList
-        todos={todos}
-        onCheckTodo={handleCheck}
-      /> */}
-      <Home/>
+    <Navbar />
+      <RouterProvider router={router}/>
     </>
   )
 }
